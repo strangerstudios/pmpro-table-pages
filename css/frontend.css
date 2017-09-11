@@ -1,0 +1,39 @@
+/*---------------------------------------
+	Membership Checkout
+---------------------------------------*/
+.pmpro_checkout thead th {
+	color: #444;
+	font-weight: bold;
+	padding: 10px;
+}
+.pmpro_checkout tbody td {
+	padding: 10px;
+}
+.pmpro_checkout tr.odd td {
+	background: rgba(239,239,239,0.25);
+}
+.pmpro_checkout tr.selected td {
+	background: #FFC;
+}
+.pmpro_checkout tr.active td {
+	background: #FFC;
+}
+.pmpro_checkout tfoot td {
+	color: #444;
+	padding: 10px;
+}
+.pmpro_checkout .topfoot td {
+	border-top: 2px solid #CCC;
+}
+.pmpro_checkout .total td {
+	border-top: 1px solid #CCC;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding-bottom: 30px;
+}
+.pmpro_checkout tfoot .entercode td {
+	background: #EEE;
+}
+.pmpro_checkout td.rtbdr {
+	border-right: 1px solid #CCC;
+}
