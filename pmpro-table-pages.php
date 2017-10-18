@@ -9,7 +9,7 @@ Author URI: https://www.paidmembershipspro.com
 */
 
 /*
-	Tell PMPro to look in our templates folder for templates.
+	Unless, there is a template in a theme directory, use the template from this plugin's templates folder
 */
 function pmprotc_pmpro_pages_custom_template_path($templates, $page_name, $type, $where, $ext) {
 	//if there is a template for this page inside of the theme, don't add our path so that is used instead
@@ -22,6 +22,20 @@ function pmprotc_pmpro_pages_custom_template_path($templates, $page_name, $type,
 	return $templates;
 }
 add_filter('pmpro_pages_custom_template_path', 'pmprotc_pmpro_pages_custom_template_path', 10, 5);
+
+/*
+	Unless, there is a frontend.css in a theme directory, use the css file from this plugin's css folder
+*/
+function pmprotc_wp_enqueue_scripts() {
+	global $wp_styles;
+
+	$style = wp_styles()->query( 'pmpro_frontend' );
+	if(empty($style) || $style->src == PMPRO_URL . '/css/frontend.css') {
+		wp_dequeue_style('pmpro_frontend');
+		wp_enqueue_style('pmpro_frontend-tables', plugins_url('css/frontend.css', __FILE__), array(), PMPRO_VERSION . '-tables', "screen");
+	}
+}
+add_action('wp_enqueue_scripts', 'pmprotc_wp_enqueue_scripts', 99);
 
 /*
 	Update Stripe and Braintree to use our method to draw the payment fields
