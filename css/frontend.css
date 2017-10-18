@@ -1,6 +1,10 @@
 /*---------------------------------------
 	Membership Checkout
 ---------------------------------------*/
+form.pmpro_form .pmpro_checkout-fields div {
+	clear: left;
+	margin: .5em 0 1em 0;
+}
 .pmpro_checkout thead th {
 	color: #444;
 	font-weight: bold;
@@ -36,4 +40,31 @@
 }
 .pmpro_checkout td.rtbdr {
 	border-right: 1px solid #CCC;
+}
+.pmpro_sslseal {
+	clear: none !important;
+	float: right;
+	margin: 0 !important;
+}
+form.pmpro_form label {
+	float: left;
+	font-weight: bold;
+	margin: 3px 10px 0 0;
+	text-align: right;
+	width: 200px;
+}
+form.pmpro_form .pmpro_submit {
+	margin-left: 210px;
+}
+form.pmpro_form .pmpro_submit span {
+	float: left;
+}
+form.pmpro_form .input, form.pmpro_form textarea, form.pmpro_form select {
+	max-width: 60%;
+}
+form.pmpro_form .leftmar {
+	margin: 8px 0 0 210px;
+}
+form.pmpro_form .pmpro_captcha {
+	margin: 0 0 0 210px;
 }
