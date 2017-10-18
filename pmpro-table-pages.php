@@ -16,7 +16,9 @@ function pmprotc_pmpro_pages_custom_template_path($templates, $page_name, $type,
 	$parent_theme_template = get_template_directory() . "/paid-memberships-pro/{$type}/{$page_name}.{$ext}";
 	$child_theme_template = get_stylesheet_directory() . "/paid-memberships-pro/{$type}/{$page_name}.{$ext}";
 
-	if(!file_exists($parent_theme_template) && !file_exists($child_theme_template))
+	if(!file_exists($parent_theme_template) && 
+	   !file_exists($child_theme_template) && 
+	   file_exists(plugin_dir_path(__FILE__) . 'templates/' . $page_name . '.' . $ext))
 		$templates[] = plugin_dir_path(__FILE__) . 'templates/' . $page_name . '.' . $ext;
 
 	return $templates;
