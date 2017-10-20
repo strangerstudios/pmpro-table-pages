@@ -12,6 +12,8 @@ In an effort to improve the display and responsive layout of default plugin page
 
 Affected pages include those pages using the following shortcodes: [pmpro_checkout], [pmpro_confirmation], and [pmpro_billing].
 
+This plugin also loads the necessary portions of the Stripe and Braintree gateways to use a table-based method to draw the payment fields.
+
 == Installation ==
 1. Upload the `pmpro-table-pages` directory to the `/wp-content/plugins/` directory of your site.
 1. Activate the plugin through the 'Plugins' menu in WordPress.
