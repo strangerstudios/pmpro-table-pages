@@ -140,45 +140,23 @@ function pmprotc_include_payment_information_fields_stripe($include) {
 
 				<div class="pmpro_payment-account-number">
 					<label for="AccountNumber"><?php _e('Card Number', 'paid-memberships-pro' );?></label>
-					<input id="AccountNumber" class="input <?php echo pmpro_getClassForField("AccountNumber");?>" type="text" size="25" value="<?php echo esc_attr($AccountNumber)?>" autocomplete="off" />
+                    <div id="AccountNumber"></div>
 				</div>
 
-				<div class="pmpro_payment-expiration">
-					<label for="ExpirationMonth"><?php _e('Expiration Date', 'paid-memberships-pro' );?></label>
-					<select id="ExpirationMonth" class=" <?php echo pmpro_getClassForField("ExpirationMonth");?>">
-						<option value="01" <?php if($ExpirationMonth == "01") { ?>selected="selected"<?php } ?>>01</option>
-						<option value="02" <?php if($ExpirationMonth == "02") { ?>selected="selected"<?php } ?>>02</option>
-						<option value="03" <?php if($ExpirationMonth == "03") { ?>selected="selected"<?php } ?>>03</option>
-						<option value="04" <?php if($ExpirationMonth == "04") { ?>selected="selected"<?php } ?>>04</option>
-						<option value="05" <?php if($ExpirationMonth == "05") { ?>selected="selected"<?php } ?>>05</option>
-						<option value="06" <?php if($ExpirationMonth == "06") { ?>selected="selected"<?php } ?>>06</option>
-						<option value="07" <?php if($ExpirationMonth == "07") { ?>selected="selected"<?php } ?>>07</option>
-						<option value="08" <?php if($ExpirationMonth == "08") { ?>selected="selected"<?php } ?>>08</option>
-						<option value="09" <?php if($ExpirationMonth == "09") { ?>selected="selected"<?php } ?>>09</option>
-						<option value="10" <?php if($ExpirationMonth == "10") { ?>selected="selected"<?php } ?>>10</option>
-						<option value="11" <?php if($ExpirationMonth == "11") { ?>selected="selected"<?php } ?>>11</option>
-						<option value="12" <?php if($ExpirationMonth == "12") { ?>selected="selected"<?php } ?>>12</option>
-					</select>/<select id="ExpirationYear" class=" <?php echo pmpro_getClassForField("ExpirationYear");?>">
-						<?php
-							for($i = date_i18n("Y"); $i < date_i18n("Y") + 10; $i++)
-							{
-						?>
-							<option value="<?php echo $i?>" <?php if($ExpirationYear == $i) { ?>selected="selected"<?php } ?>><?php echo $i?></option>
-						<?php
-							}
-						?>
-					</select>
-				</div>
+                <div class="pmpro_checkout-field pmpro_payment-expiration">
+                    <label for="Expiry"><?php _e( 'Expiration Date', 'paid-memberships-pro' ); ?></label>
+                    <div id="Expiry"></div>
+                </div>
 
 				<?php
 					$pmpro_show_cvv = apply_filters("pmpro_show_cvv", true);
 					if($pmpro_show_cvv)
 					{							
 				?>
-				<div class="pmpro_payment-cvv">
-					<label for="CVV"><?php _e('Security Code (CVC)', 'paid-memberships-pro' );?></label>
-					<input id="CVV" type="text" size="4" value="<?php if(!empty($_REQUEST['CVV'])) { echo esc_attr(sanitize_text_field($_REQUEST['CVV'])); }?>" class="input <?php echo pmpro_getClassForField("CVV");?>" />  <small>(<a href="javascript:void(0);" onclick="javascript:window.open('<?php echo pmpro_https_filter(PMPRO_URL)?>/pages/popup-cvv.html','cvv','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=600, height=475');"><?php _e("what's this?", 'paid-memberships-pro' );?></a>)</small>
-				</div>
+                    <div>
+                        <label for="CVV"><?php _ex('CVV', 'Credit card security code, CVV/CCV/CVV2', 'vibe');?></label>
+                        <div id="CVV"></div>
+                    </div>
 				<?php
 					}
 				?>
