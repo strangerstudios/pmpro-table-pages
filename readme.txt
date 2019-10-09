@@ -5,6 +5,8 @@ Requires at least: 3.0
 Tested up to: 4.1.1
 Stable tag: .2
 
+IMPORTANT: This plugin has been deprecated and won't work with PMPro versions > 2.0.
+
 This is an archived version of the table-based layouts for default Paid Memberships Pro pages, including the Checkout, Billing, and Confirmation pages.
 
 == Description ==
