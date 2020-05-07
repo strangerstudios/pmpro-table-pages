@@ -30,7 +30,9 @@ add_filter('pmpro_pages_custom_template_path', 'pmprotc_pmpro_pages_custom_templ
 */
 function pmprotc_wp_enqueue_scripts() {
 	global $wp_styles;
-
+	if ( ! defined( 'PMPRO_VERSION' ) ) {
+		return;
+	}
 	$style = wp_styles()->query( 'pmpro_frontend' );
 	if(empty($style) || $style->src == PMPRO_URL . '/css/frontend.css') {
 		wp_dequeue_style('pmpro_frontend');
@@ -43,6 +45,9 @@ add_action('wp_enqueue_scripts', 'pmprotc_wp_enqueue_scripts', 99);
 	Update Stripe and Braintree to use our method to draw the payment fields
 */
 function pmprotc_init_update_gateways() {
+	if ( ! function_exists( 'pmpro_getOption' ) ) {
+		return;
+	}
 	$default_gateway = pmpro_getOption('gateway');
 	$current_gateway = pmpro_getGateway();
 	if( ($default_gateway == "stripe" || $current_gateway == "stripe") && empty($_REQUEST['review'] ) )	{
